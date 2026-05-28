@@ -160,7 +160,7 @@ if __name__ == "__main__":
 
     # Step 3: Save a clean, distinct dictionary file (Only unique correct words)
     unique_vocabulary = sorted(list(set(all_words)))
-    vocab_filename = "georgian_vocabulary.txt"
+    vocab_filename = "data/georgian_vocabulary.txt"
     with open(vocab_filename, "w", encoding="utf-8") as f:
         for word in unique_vocabulary:
             f.write(f"{word}\n")
@@ -171,7 +171,7 @@ if __name__ == "__main__":
     dataset_df = build_parallel_dataset(all_words, corruption_rate=0.5)
 
     # Save as CSV ready for AI framework input mapping
-    csv_filename = "georgian_spellchecker_dataset.csv"
+    csv_filename = "data/georgian_spellchecker_dataset.csv"
     dataset_df.to_csv(csv_filename, index=False, encoding="utf-8")
 
     print(f"[✓] Training dataset compiled into '{csv_filename}' with {len(dataset_df)} total parallel training rows!")
